@@ -4,14 +4,14 @@ import os
 import asyncio
 import asyncpixel
 import math
-import mongo
+import mongo 
 import motor.motor_asyncio
 import urllib.request as ur
-import time
+import time 
 import json
 import string
 import requests
-from utils.mongo import Document
+
 import urllib
 from random import randint
 from pprint import pprint
