@@ -24,6 +24,10 @@ from youtube_dl import YoutubeDL
 from num2words import num2words
 import subprocess
 import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
 def prefix(client, message):
     try:
         with open("prefixes.json", 'r') as q:
@@ -625,4 +629,4 @@ async def logout(ctx):
         await ctx.send("Bye.")
         await bot.logout()
 
-bot.run('NzkxMDgyMjA2MjQ3OTExNDM0.X-J-tw.hHkGFutkziS_DufEPoSsKZz6rsA')
+bot.run(TOKEN)
