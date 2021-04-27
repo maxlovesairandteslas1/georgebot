@@ -1,0 +1,28 @@
+class Twitter(commands.Cog, name = "Twitter"):
+    def __init__(self, bot):
+        self.bot = bot
+
+        self.twitter_consumer_key = os.getenv("TWITTER_KEY")
+        self.twitter_consumer_secret = os.getenv("TWITTER_SECRET")
+        self.twitter_auth = tweepy.AppAuthHandler(self.twitter_consumer_key, self.twitter_consumer_secret)
+        self.twitter_api = tweepy.API(self.twitter_auth)
+
+        self.stream_listener = tweepy.Stream(
+            auth = self.twitter_api.auth,
+            listener = TwitterListener(self.send_tweet, loop = asyncio.get_event_loop())
+        )
+
+        self.stream_listener.filter(follow=['1344439285718470656'], is_async=True)
+
+        print(f"{bot.OK} {bot.TIMELOG()} Loaded Twitter Cog.")
+    
+    def cog_unload(self):
+        print(f"{self.bot.OK} {self.bot.TIMELOG()} Unloaded Twitter Cog.")
+
+    async def send_tweet(self, msg):
+        await self.bot.wait_until_ready()
+
+        print(msg)
+
+        channel = self.bot.get_channel(self.bot.data['logs']['twitter'])
+        await channel.send(f"``\n{json.dumps(msg, indent = 2)}\n``")

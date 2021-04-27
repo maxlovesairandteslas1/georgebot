@@ -1,0 +1,7 @@
+            embed = discord.Embed(title="Thank you for inviting George!",
+                                  description="George the bot is a great bot that combines simplicity into setting up the bot, and also is a great experience for users.")
+            embed.set_author(name="George")
+            embed.set_thumbnail(
+            url="https://lh3.googleusercontent.com/-ByQF9xuuVsw/X-5SZFyW9JI/AAAAAAAABNo/oj8-p9-mhx4JyMaz_1qG7AFYcVhK7u0sgCLcBGAsYHQ/s0/georgehello.gif")
+            embed.add_field(name="undefined", value="undefined", inline=False)
+            await general.send(embed=embed)
