@@ -10,3 +10,13 @@ In max's bot, you can not fork this project or commercially use this, I put a co
 
 
 SO DON'T COPY IT PLEASE I WORKED SO HARD D:
+
+##Also this is beta version so don't screw arround k.
+
+##Invite george link:
+https://dsc.gg/georgebot
+
+#Need help?
+Join my discord server to get help:
+https://dsc.gg/max'sworld
+
