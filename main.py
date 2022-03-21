@@ -41,7 +41,6 @@ songs = asyncio.Queue()
 play_next_song = asyncio.Event()
 bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
-bot.connection_url = 'mongodb+srv://maxlovesairandteslas:20090119solana@george.qt82i.mongodb.net/maxlovesairandteslas?retryWrites=true&w=majority'
 
 @bot.event
 async def on_ready():
@@ -57,14 +56,12 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=game)
     subprocess.call(["python", "stablereleasedatetimestatus.py"])
 
-    bot.mongo = motor.motor_asyncio.AsyncIOMotorClient(str(bot.connection_url))
-    bot.db = bot.mongo["bot_config"]
-    bot.config = Document(bot.db, "config")
-    print("Initialized Database\n-----")
-    for document in await bot.config.get_all():
-      print(document)
 
-
+@bot.command(aliases=["69"])
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def _69(ctx):
+    ctx.send("WOW YOU ARE SO FUNNY IM LAUGHING SO HARD\n...")
+ 
 @bot.command()
 async def setup(ctx):
     with open("prefixes.json", 'r') as q:
