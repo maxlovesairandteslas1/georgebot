@@ -3,8 +3,7 @@ from discord.ext import commands
 import os
 import asyncio
 import asyncpixel
-import math
-import mongo 
+import math 
 import motor.motor_asyncio
 import urllib.request as ur
 import time 
